@@ -1,6 +1,7 @@
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.append('..')  # nopep8
+sys.path.append('../ch07')  # nopep8
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset import sequence
