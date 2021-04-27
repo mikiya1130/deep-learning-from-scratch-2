@@ -1,0 +1,9 @@
+__pycache__/
+BetterRnnlm.pkl
+ptb.test.npy
+ptb.test.txt
+ptb.train.npy
+ptb.train.txt
+ptb.valid.npy
+ptb.valid.txt
+ptb.vocab.pkl
