@@ -1,6 +1,7 @@
+# %%
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.append('..')  # nopep8
 import matplotlib.pyplot as plt
 import numpy as np
 from common.optimizer import SGD

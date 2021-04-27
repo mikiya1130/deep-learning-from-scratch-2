@@ -1,6 +1,7 @@
+# %%
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.append('..')  # nopep8
 import numpy
 import time
 import matplotlib.pyplot as plt
@@ -38,7 +39,8 @@ class Trainer:
                 # 勾配を求め、パラメータを更新
                 loss = model.forward(batch_x, batch_t)
                 model.backward()
-                params, grads = remove_duplicate(model.params, model.grads)  # 共有された重みを1つに集約
+                params, grads = remove_duplicate(
+                    model.params, model.grads)  # 共有された重みを1つに集約
                 if max_grad is not None:
                     clip_grads(grads, max_grad)
                 optimizer.update(params, grads)
@@ -104,12 +106,14 @@ class RnnlmTrainer:
         start_time = time.time()
         for epoch in range(max_epoch):
             for iters in range(max_iters):
-                batch_x, batch_t = self.get_batch(xs, ts, batch_size, time_size)
+                batch_x, batch_t = self.get_batch(
+                    xs, ts, batch_size, time_size)
 
                 # 勾配を求め、パラメータを更新
                 loss = model.forward(batch_x, batch_t)
                 model.backward()
-                params, grads = remove_duplicate(model.params, model.grads)  # 共有された重みを1つに集約
+                params, grads = remove_duplicate(
+                    model.params, model.grads)  # 共有された重みを1つに集約
                 if max_grad is not None:
                     clip_grads(grads, max_grad)
                 optimizer.update(params, grads)
@@ -158,15 +162,18 @@ def remove_duplicate(params, grads):
                     grads.pop(j)
                 # 転置行列として重みを共有する場合（weight tying）
                 elif params[i].ndim == 2 and params[j].ndim == 2 and \
-                     params[i].T.shape == params[j].shape and np.all(params[i].T == params[j]):
+                        params[i].T.shape == params[j].shape and np.all(params[i].T == params[j]):
                     grads[i] += grads[j].T
                     find_flg = True
                     params.pop(j)
                     grads.pop(j)
 
-                if find_flg: break
-            if find_flg: break
+                if find_flg:
+                    break
+            if find_flg:
+                break
 
-        if not find_flg: break
+        if not find_flg:
+            break
 
     return params, grads

@@ -1,6 +1,7 @@
+# %%
 # coding: utf-8
 import sys
-sys.path.append('..')  # 親ディレクトリのファイルをインポートするための設定
+sys.path.append('..')  # nopep8 親ディレクトリのファイルをインポートするための設定
 from dataset import spiral
 import matplotlib.pyplot as plt
 

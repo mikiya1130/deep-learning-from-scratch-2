@@ -1,6 +1,7 @@
+# %%
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.append('..')  # nopep8
 import numpy as np
 from dataset import sequence
 import matplotlib.pyplot as plt
@@ -22,6 +23,8 @@ model = AttentionSeq2seq(vocab_size, wordvec_size, hidden_size)
 model.load_params()
 
 _idx = 0
+
+
 def visualize(attention_map, row_labels, column_labels):
     fig, ax = plt.subplots()
     ax.pcolor(attention_map, cmap=plt.cm.Greys_r, vmin=0.0, vmax=1.0)
@@ -50,8 +53,8 @@ for _ in range(5):
     attention_map = d.reshape(d.shape[0], d.shape[2])
 
     # reverse for print
-    attention_map = attention_map[:,::-1]
-    x = x[:,::-1]
+    attention_map = attention_map[:, ::-1]
+    x = x[:, ::-1]
 
     row_labels = [id_to_char[i] for i in x[0]]
     column_labels = [id_to_char[i] for i in t[0]]

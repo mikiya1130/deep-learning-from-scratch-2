@@ -1,6 +1,7 @@
+# %%
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.append('..')  # nopep8
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset import sequence
@@ -59,4 +60,3 @@ plt.xlabel('epochs')
 plt.ylabel('accuracy')
 plt.ylim(0, 1.0)
 plt.show()
-
